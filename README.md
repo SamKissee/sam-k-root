@@ -1,6 +1,8 @@
-# Welcome to your Expo app 👋
+# Root Take Home Project - Sam Kissee
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+---
+
+Thank you for reviewing this project! Project created with Expo and Typescript. I have not used Expo in a long time, so apologies if some things are not 100% up to standard.
 
 ## Get started
 
@@ -23,28 +25,58 @@ In the output, you'll find options to open the app in a
 - [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
 - [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Requirements from PDF Document for Easy Reference
 
-## Get a fresh project
+### 1. Mock Data Provider
 
-When you're ready, run:
+- Implement a mock data provider using in-memory data storage.
+- Include hard-coded initial notifications to display upon app startup.
+- Use a suitable data structure to manage notifications.
 
-```bash
-npm run reset-project
-```
+### 2. Notification System
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+- Design a system to randomly generate mock notifications simulating real-time updates.
+- Each notification includes:
+  - Notification type (e.g., new mention, friend request, community invite).
+  - Timestamp of when the notification was created.
 
-## Learn more
+### 3. Notification Display
 
-To learn more about developing your project with Expo, look at the following resources:
+- Create a user interface to display the list of notifications.
+- Display key details such as:
+  - Notification type.
+  - Timestamp.
+  - Read/unread status.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### 4. Mark Notifications as Read
 
-## Join the community
+- Implement functionality for users to mark notifications as read.
+- Tapping on a notification updates its read status.
+- Ensure the UI dynamically reflects changes.
 
-Join our community of developers creating universal apps.
+### 5. TypeScript Support
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Define and use TypeScript types for notification data.
+- Ensure type safety throughout the application.
+
+## Evaluation Criteria
+
+The project will be assessed based on the following:
+
+### 1. Functionality
+
+- Does the app meet the specified requirements?
+
+### 2. Code Quality
+
+- Is the code well-organized, readable, and maintainable?
+- Does it adhere to React Native best practices?
+
+### 3. Architecture
+
+- Is the app designed with good architectural practices?
+- Is it flexible, extensible, and updatable?
+
+### 4. State Management
+
+- How effectively is state managed, particularly for notifications?
