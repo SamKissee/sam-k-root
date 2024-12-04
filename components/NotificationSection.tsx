@@ -2,15 +2,21 @@ import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { Colors } from "@/constants/Colors";
 import NotificationItem from "./NotificationItem";
+import { Notification } from "@/stores/useNotificationStore";
 
-export default function NotificationSection() {
+type Props = {
+  notifications: Notification[];
+};
+
+export default function NotificationSection({ notifications }: Props) {
   // TODO Accept section date and Items
   return (
     <View style={styles.wrapper}>
       <Text style={styles.sectionDate}>Today</Text>
       <View style={styles.section}>
-        <NotificationItem />
-        <NotificationItem />
+        {notifications.map((n) => (
+          <NotificationItem notification={n} />
+        ))}
       </View>
     </View>
   );

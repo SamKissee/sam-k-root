@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-interface Notification {
+export interface Notification {
   id: number;
   type: string;
   message: string;
@@ -18,6 +18,7 @@ interface NotificationState {
   filters: Filter[];
   unreadCount: number;
   markAsRead: (notificationId: number) => void;
+  addNotification: (notification: Notification) => void;
 }
 
 const initialState = {
@@ -68,6 +69,17 @@ const useNotificationStore = create<NotificationState>()((set) => ({
         unreadCount: newNotifications.filter((n) => !n.read).length,
       };
     }),
+  addNotification: (notification) =>
+    set((state) => ({
+      notifications: [
+        ...state.notifications,
+        {
+          ...notification,
+          id: state.notifications.length + 1,
+          read: false,
+        },
+      ],
+    })),
 }));
 
 export default useNotificationStore;

@@ -12,6 +12,10 @@ const MESSAGES_COUNT = 2;
 export default function TabLayout() {
   const { unreadCount } = useNotificationStore();
 
+  const showCount = (count: number) => {
+    return count > 0 ? count : undefined;
+  };
+
   return (
     <Tabs
       screenOptions={{
@@ -58,7 +62,7 @@ export default function TabLayout() {
               color={color}
             />
           ),
-          tabBarBadge: FRIEND_COUNT,
+          tabBarBadge: showCount(FRIEND_COUNT),
         }}
       />
       <Tabs.Screen
@@ -72,7 +76,7 @@ export default function TabLayout() {
               color={color}
             />
           ),
-          tabBarBadge: MESSAGES_COUNT,
+          tabBarBadge: showCount(MESSAGES_COUNT),
         }}
       />
       <Tabs.Screen
@@ -86,7 +90,7 @@ export default function TabLayout() {
               color={color}
             />
           ),
-          tabBarBadge: unreadCount,
+          tabBarBadge: showCount(unreadCount),
         }}
       />
       <Tabs.Screen

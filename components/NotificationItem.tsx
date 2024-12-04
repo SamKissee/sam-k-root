@@ -2,27 +2,28 @@ import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
 import { Colors } from "@/constants/Colors";
 import { format } from "date-fns";
+import useNotificationStore, {
+  Notification,
+} from "@/stores/useNotificationStore";
 
-const DATA = {
-  id: 1,
-  type: "mention",
-  message: "@John mentioned you",
-  timestamp: "2024-12-03T14:00:00Z",
-  read: true,
+type Props = {
+  notification: Notification;
 };
 
-export default function NotificationItem() {
-  const formattedDate = format(new Date(DATA.timestamp), "MM/dd/yyyy");
+export default function NotificationItem({ notification }: Props) {
+  const { markAsRead } = useNotificationStore();
+  const formattedDate = format(new Date(notification.timestamp), "MM/dd/yyyy");
+
   return (
-    <TouchableOpacity onPress={() => {}}>
-      <View style={[styles.wrapper, !DATA.read && styles.unread]}>
+    <TouchableOpacity onPress={() => markAsRead(notification.id)}>
+      <View style={[styles.wrapper, !notification.read && styles.unread]}>
         <Image
           source={require("../assets/images/icon.png")}
           style={styles.image}
         />
         <View>
           <Text style={styles.message}>
-            {DATA.message} {!DATA.read && "**"}
+            {notification.message} {!notification.read && "**"}
             {/* Better unread */}
           </Text>
           <Text style={styles.timestamp}>{formattedDate}</Text>
