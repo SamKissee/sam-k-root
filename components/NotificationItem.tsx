@@ -23,6 +23,9 @@ export default function NotificationItem({ notification }: Props) {
         />
         <View>
           <Text style={styles.message}>
+            <Text style={[notification.read && styles.user]}>
+              @{notification.user}
+            </Text>{" "}
             {notification.message} {!notification.read && "**"}
             {/* Better unread */}
           </Text>
@@ -55,6 +58,9 @@ const styles = StyleSheet.create({
   timestamp: {
     color: Colors.text,
     fontSize: 11,
+  },
+  user: {
+    backgroundColor: Colors.userNameBackground,
   },
   message: {
     color: Colors.text,

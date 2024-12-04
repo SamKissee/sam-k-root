@@ -3,6 +3,7 @@ import { create } from "zustand";
 export interface Notification {
   id: number;
   type: string;
+  user: string;
   message: string;
   timestamp: string;
   read: boolean;
@@ -26,21 +27,24 @@ const initialState = {
     {
       id: 1,
       type: "mention",
-      message: "@John mentioned you",
+      user: "John",
+      message: "mentioned you",
       timestamp: "2024-12-03T14:00:00Z",
       read: true,
     },
     {
       id: 2,
       type: "friend",
-      message: "@John mentioned you",
+      user: "Jim",
+      message: "sent you a friend request",
       timestamp: "2024-12-04T14:00:00Z",
       read: false,
     },
     {
       id: 3,
       type: "invite",
-      message: "@John mentioned you",
+      user: "Jerry",
+      message: "invited you to a server",
       timestamp: "2024-12-02T14:00:00Z",
       read: true,
     },
