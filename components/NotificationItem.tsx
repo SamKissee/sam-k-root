@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     columnGap: 10,
     alignItems: "center",
+    backgroundColor: Colors.sectionBackground,
   },
   text: {
     color: Colors.text,
