@@ -17,13 +17,12 @@ export default function NotificationSection() {
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
-    flexDirection: "row",
-    paddingTop: 10,
-    paddingBottom: 20,
-    columnGap: 5,
-    alignSelf: "center",
+  wrapper: { marginBottom: 5 },
+  sectionDate: {
+    paddingLeft: 10,
+    paddingBottom: 5,
+    color: Colors.text,
+    fontWeight: "bold",
   },
-  sectionDate: {},
-  section: {},
+  section: { backgroundColor: Colors.sectionBackground },
 });

@@ -1,23 +1,26 @@
 import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { Colors } from "@/constants/Colors";
+import useNotificationStore from "@/stores/useNotificationStore";
 
-const TABS = ["All", "Mentions", "Friend requests", "Invites"];
+type Props = {
+  filter: string | null;
+  setFilter: (value: string | null) => void;
+};
 
-// TODO Add Set Functions and Load Filter Options from Store
-
-export default function FilterBar() {
+export default function FilterBar({ filter, setFilter }: Props) {
+  const { filters } = useNotificationStore();
   return (
     <View style={styles.wrapper}>
-      {TABS.map((item, index) => (
-        <TouchableOpacity onPress={() => {}}>
+      {filters.map((item) => (
+        <TouchableOpacity onPress={() => setFilter(item.type)}>
           <View
             style={[
               styles.filterButton,
-              index === 0 && styles.filterButtonActive,
+              filter === item.type && styles.filterButtonActive,
             ]}
           >
-            <Text style={styles.text}>{item}</Text>
+            <Text style={styles.text}>{item.name}</Text>
           </View>
         </TouchableOpacity>
       ))}

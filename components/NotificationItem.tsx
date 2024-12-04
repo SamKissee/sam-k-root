@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
 import { Colors } from "@/constants/Colors";
+import { format } from "date-fns";
 
 const DATA = {
   id: 1,
@@ -11,19 +12,20 @@ const DATA = {
 };
 
 export default function NotificationItem() {
+  const formattedDate = format(new Date(DATA.timestamp), "MM/dd/yyyy");
   return (
     <TouchableOpacity onPress={() => {}}>
       <View style={[styles.wrapper, !DATA.read && styles.unread]}>
         <Image
-          source={require("../../assets/images/icon.png")}
+          source={require("../assets/images/icon.png")}
           style={styles.image}
         />
         <View>
-          <Text>
+          <Text style={styles.message}>
             {DATA.message} {!DATA.read && "**"}
             {/* Better unread */}
           </Text>
-          <Text>{DATA.timestamp}</Text>
+          <Text style={styles.timestamp}>{formattedDate}</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -33,19 +35,28 @@ export default function NotificationItem() {
 const styles = StyleSheet.create({
   wrapper: {
     flexDirection: "row",
-    marginVertical: 10,
+    paddingVertical: 10,
+    paddingLeft: 10,
     columnGap: 10,
-    alignSelf: "center",
+    alignItems: "center",
   },
   text: {
     color: Colors.text,
     textAlign: "center",
   },
   image: {
-    height: 25,
-    width: 25,
+    height: 35,
+    width: 35,
   },
   unread: {
     backgroundColor: "grey", // change me
+  },
+  timestamp: {
+    color: Colors.text,
+    fontSize: 11,
+  },
+  message: {
+    color: Colors.text,
+    paddingBottom: 5,
   },
 });
