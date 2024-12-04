@@ -16,6 +16,7 @@ interface Filter {
 interface NotificationState {
   notifications: Notification[];
   filters: Filter[];
+  unreadCount: number;
   markAsRead: (notificationId: number) => void;
 }
 
@@ -54,18 +55,17 @@ const initialState = {
 
 const useNotificationStore = create<NotificationState>()((set) => ({
   ...initialState,
+  unreadCount: initialState.notifications.filter((n) => !n.read).length,
   markAsRead: (notificationId: number) =>
     set((state) => {
-      const { notifications } = state;
-      const index = notifications.findIndex((n) => n.id === notificationId);
-      if (index === -1) return state;
-
+      const newNotifications = state.notifications.map((notification) =>
+        notification.id === notificationId
+          ? { ...notification, read: true }
+          : notification
+      );
       return {
-        notifications: [
-          ...notifications.slice(0, index),
-          { ...notifications[index], read: true },
-          ...notifications.slice(index + 1),
-        ],
+        notifications: newNotifications,
+        unreadCount: newNotifications.filter((n) => !n.read).length,
       };
     }),
 }));

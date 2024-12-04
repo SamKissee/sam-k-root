@@ -3,13 +3,15 @@ import React from "react";
 import { Platform } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Colors } from "@/constants/Colors";
+import useNotificationStore from "@/stores/useNotificationStore";
 
 // hard coded to match design
 const FRIEND_COUNT = 3;
 const MESSAGES_COUNT = 2;
 
 export default function TabLayout() {
-  // TODO - Notification Count from Store
+  const { unreadCount } = useNotificationStore();
+
   return (
     <Tabs
       screenOptions={{
@@ -84,6 +86,7 @@ export default function TabLayout() {
               color={color}
             />
           ),
+          tabBarBadge: unreadCount,
         }}
       />
       <Tabs.Screen
