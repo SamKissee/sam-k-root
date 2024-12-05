@@ -1,3 +1,4 @@
+// used color picker in Photoshop to grab colors from Doc Image
 export const Colors = {
   header: "#01151c",
   background: "#1c2b40",
@@ -8,6 +9,7 @@ export const Colors = {
   userNameBackground: "#3b4658",
   text: "#ffffff",
   notificationText: "#b0b8c6",
+  notificationUnread: "#445678",
   notificationTime: "#6d788a",
   green1: "#4c8282",
   green2: "#445b53",
