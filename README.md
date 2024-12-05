@@ -2,9 +2,9 @@
 
 ---
 
-Thank you for reviewing this project! Project created with Expo and Typescript. I have not used Expo in a long time, so apologies if some things are not 100% up to standard.
+Thank you for reviewing my project! Project created with Expo and Typescript. I have not used Expo or Typescript in a long time, so apologies if some things are not 100% up to standard.
 
-## Get started
+## Get started from Expo Default
 
 1. Install dependencies
 
@@ -31,7 +31,6 @@ In the output, you'll find options to open the app in a
 
 - Implement a mock data provider using in-memory data storage.
 - Include hard-coded initial notifications to display upon app startup.
-- Use a suitable data structure to manage notifications.
 
 ### 2. Notification System
 
@@ -58,25 +57,3 @@ In the output, you'll find options to open the app in a
 
 - Define and use TypeScript types for notification data.
 - Ensure type safety throughout the application.
-
-## Evaluation Criteria
-
-The project will be assessed based on the following:
-
-### 1. Functionality
-
-- Does the app meet the specified requirements?
-
-### 2. Code Quality
-
-- Is the code well-organized, readable, and maintainable?
-- Does it adhere to React Native best practices?
-
-### 3. Architecture
-
-- Is the app designed with good architectural practices?
-- Is it flexible, extensible, and updatable?
-
-### 4. State Management
-
-- How effectively is state managed, particularly for notifications?

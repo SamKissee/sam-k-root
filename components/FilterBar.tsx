@@ -13,7 +13,7 @@ export default function FilterBar({ filter, setFilter }: Props) {
   return (
     <View style={styles.wrapper}>
       {filters.map((item) => (
-        <TouchableOpacity onPress={() => setFilter(item.type)}>
+        <TouchableOpacity onPress={() => setFilter(item.type)} key={item.type}>
           <View
             style={[
               styles.filterButton,
