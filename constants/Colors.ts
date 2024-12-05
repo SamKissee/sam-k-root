@@ -11,10 +11,5 @@ export const Colors = {
   notificationText: "#b0b8c6",
   notificationUnread: "#445678",
   notificationTime: "#6d788a",
-  green1: "#4c8282",
-  green2: "#445b53",
-  red1: "#8a4c5f",
-  red2: "#fc5063",
-  brown1: "#604e40",
   tabBackground: "#314053",
 };
