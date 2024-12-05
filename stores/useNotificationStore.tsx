@@ -19,7 +19,7 @@ interface NotificationState {
   filters: Filter[];
   unreadCount: number;
   markAsRead: (notificationId: number) => void;
-  addNotification: (notification: Notification) => void;
+  addNotification: (notification: Omit<Notification, "id" | "read">) => void;
 }
 
 const initialState = {
@@ -83,6 +83,7 @@ const useNotificationStore = create<NotificationState>()((set) => ({
           read: false,
         },
       ],
+      unreadCount: state.unreadCount + 1,
     })),
 }));
 
