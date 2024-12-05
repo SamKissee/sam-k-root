@@ -22,7 +22,7 @@ export default function NotificationItem({ notification }: Props) {
           style={styles.image}
         />
         <View>
-          <Text style={styles.message}>
+          <Text style={[styles.message, !notification.read && styles.unread]}>
             <Text style={[notification.read && styles.user]}>
               @{notification.user}
             </Text>{" "}
@@ -54,7 +54,8 @@ const styles = StyleSheet.create({
     width: 35,
   },
   unread: {
-    backgroundColor: "grey", // change me
+    backgroundColor: Colors.notificationUnread,
+    fontWeight: "bold",
   },
   timestamp: {
     color: Colors.text,
