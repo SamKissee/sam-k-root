@@ -1,8 +1,8 @@
 // Random Messages would need type added here and in Store.
 const typeMessage = [
-  { type: "mention", message: "sent you a friend request" },
-  { type: "friend", message: "mentioned you" },
-  { type: "invite", message: "invited you to join a group" },
+  { type: "friend", message: "sent you a friend request" },
+  { type: "mention", message: "mentioned you" },
+  { type: "invite", message: "invited you to join a server" },
 ];
 
 const names = [
@@ -16,6 +16,7 @@ const names = [
 const generateNotification = () => {
   const randomTM = typeMessage[Math.floor(Math.random() * typeMessage.length)];
   const randomName = names[Math.floor(Math.random() * names.length)];
+
   return {
     type: randomTM.type,
     user: randomName,
