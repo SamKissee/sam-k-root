@@ -27,7 +27,6 @@ export default function NotificationItem({ notification }: Props) {
               @{notification.user}
             </Text>{" "}
             {notification.message} {!notification.read && "**"}
-            {/* Better unread */}
           </Text>
           <Text style={styles.timestamp}>{formattedDate}</Text>
         </View>
